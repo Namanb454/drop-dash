@@ -1,0 +1,284 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`fixture regression set > produces a stable schema + chart map across all fixtures 1`] = `
+{
+  "ambiguous-dates.csv": {
+    "charts": [],
+    "columns": {
+      "event": "categorical",
+      "when": "date",
+    },
+  },
+  "booleans.csv": {
+    "charts": [
+      "bar(a_yn)",
+      "bar(c_10)",
+      "bar(b_tf)",
+      "bar(d_truefalse)",
+      "bar(e_onoff)",
+    ],
+    "columns": {
+      "a_yn": "boolean",
+      "b_tf": "boolean",
+      "c_10": "boolean",
+      "d_truefalse": "boolean",
+      "e_onoff": "boolean",
+    },
+  },
+  "categorical-heavy.csv": {
+    "charts": [
+      "groupedBar(segment,score)",
+      "groupedBar(tier,score)",
+      "bar(region)",
+      "bar(tier)",
+      "bar(segment)",
+      "histogram(score)",
+    ],
+    "columns": {
+      "region": "categorical",
+      "score": "numeric",
+      "segment": "categorical",
+      "tier": "categorical",
+    },
+  },
+  "constant-column.csv": {
+    "charts": [
+      "histogram(varying)",
+      "bar(const)",
+      "groupedBar(const,varying)",
+    ],
+    "columns": {
+      "const": "categorical",
+      "varying": "numeric",
+    },
+  },
+  "currency.csv": {
+    "charts": [
+      "histogram(margin)",
+      "histogram(price)",
+      "histogram(discount)",
+      "scatter(discount,margin)",
+      "scatter(price,discount)",
+      "scatter(price,margin)",
+    ],
+    "columns": {
+      "discount": "numeric",
+      "margin": "numeric",
+      "price": "numeric",
+      "product": "unknown",
+    },
+  },
+  "empty.csv": {
+    "error": "This file is empty — there is nothing to read.",
+  },
+  "events.csv": {
+    "charts": [
+      "bar(event)",
+      "groupedBar(event,duration_ms)",
+      "histogram(duration_ms)",
+      "line(timestamp,duration_ms)",
+    ],
+    "columns": {
+      "duration_ms": "numeric",
+      "event": "categorical",
+      "timestamp": "date",
+      "user": "categorical",
+    },
+  },
+  "free-text.csv": {
+    "charts": [],
+    "columns": {
+      "comment": "unknown",
+      "id": "identifier",
+    },
+  },
+  "header-only.csv": {
+    "error": "This file has a header row but no data rows.",
+  },
+  "identifiers.csv": {
+    "charts": [],
+    "columns": {
+      "seq_id": "identifier",
+      "sha": "identifier",
+      "uuid": "identifier",
+    },
+  },
+  "mixed-nulls.csv": {
+    "charts": [
+      "groupedBar(name,score)",
+      "bar(name)",
+      "histogram(score)",
+    ],
+    "columns": {
+      "name": "categorical",
+      "notes": "unknown",
+      "score": "numeric",
+    },
+  },
+  "month-name-dates.csv": {
+    "charts": [],
+    "columns": {
+      "id": "identifier",
+      "signed_up": "date",
+    },
+  },
+  "numeric-heavy.csv": {
+    "charts": [
+      "scatter(x,y_linear)",
+      "scatter(x,y_noisy)",
+      "scatter(y_linear,y_noisy)",
+      "histogram(x)",
+      "histogram(y_linear)",
+      "histogram(z_random)",
+      "histogram(y_noisy)",
+    ],
+    "columns": {
+      "x": "numeric",
+      "y_linear": "numeric",
+      "y_noisy": "numeric",
+      "z_random": "numeric",
+    },
+  },
+  "sales.csv": {
+    "charts": [
+      "groupedBar(fulfilled,revenue)",
+      "bar(category)",
+      "bar(city)",
+      "bar(zip_code)",
+      "bar(units)",
+      "bar(fulfilled)",
+      "histogram(revenue)",
+      "line(order_date,revenue)",
+    ],
+    "columns": {
+      "category": "categorical",
+      "city": "categorical",
+      "fulfilled": "boolean",
+      "order_date": "date",
+      "order_id": "identifier",
+      "revenue": "numeric",
+      "units": "categorical",
+      "zip_code": "categorical",
+    },
+  },
+  "single-column.csv": {
+    "charts": [
+      "histogram(temperature)",
+    ],
+    "columns": {
+      "temperature": "numeric",
+    },
+  },
+  "survey.csv": {
+    "charts": [
+      "bar(channel)",
+      "bar(age_group)",
+      "bar(satisfaction)",
+      "bar(would_recommend)",
+    ],
+    "columns": {
+      "age_group": "categorical",
+      "channel": "categorical",
+      "respondent_id": "identifier",
+      "satisfaction": "categorical",
+      "would_recommend": "boolean",
+    },
+  },
+  "tab-separated.tsv": {
+    "charts": [
+      "histogram(age)",
+      "bar(name)",
+      "bar(city)",
+      "groupedBar(name,age)",
+      "groupedBar(city,age)",
+    ],
+    "columns": {
+      "age": "numeric",
+      "city": "categorical",
+      "name": "categorical",
+    },
+  },
+  "unicode.csv": {
+    "charts": [
+      "bar(país)",
+      "bar(ciudad)",
+      "bar(población)",
+      "bar(emoji)",
+    ],
+    "columns": {
+      "ciudad": "categorical",
+      "emoji": "categorical",
+      "país": "categorical",
+      "población": "categorical",
+    },
+  },
+  "weather.csv": {
+    "charts": [
+      "histogram(temp_c)",
+      "histogram(pressure)",
+      "histogram(wind_kph)",
+      "scatter(temp_c,wind_kph)",
+      "scatter(wind_kph,pressure)",
+      "line(date,temp_c)",
+      "line(date,pressure)",
+    ],
+    "columns": {
+      "date": "date",
+      "humidity": "categorical",
+      "pressure": "numeric",
+      "temp_c": "numeric",
+      "wind_kph": "numeric",
+    },
+  },
+  "wide.csv": {
+    "charts": [
+      "bar(col_9)",
+      "bar(col_19)",
+      "bar(col_24)",
+      "histogram(col_4)",
+      "histogram(col_14)",
+      "histogram(col_1)",
+      "histogram(col_3)",
+      "histogram(col_5)",
+    ],
+    "columns": {
+      "col_0": "numeric",
+      "col_1": "numeric",
+      "col_10": "numeric",
+      "col_11": "numeric",
+      "col_12": "numeric",
+      "col_13": "numeric",
+      "col_14": "numeric",
+      "col_15": "numeric",
+      "col_16": "numeric",
+      "col_17": "numeric",
+      "col_18": "numeric",
+      "col_19": "categorical",
+      "col_2": "numeric",
+      "col_20": "numeric",
+      "col_21": "numeric",
+      "col_22": "numeric",
+      "col_23": "numeric",
+      "col_24": "categorical",
+      "col_3": "numeric",
+      "col_4": "numeric",
+      "col_5": "numeric",
+      "col_6": "numeric",
+      "col_7": "numeric",
+      "col_8": "numeric",
+      "col_9": "categorical",
+    },
+  },
+  "zip-codes.csv": {
+    "charts": [
+      "bar(zip)",
+      "bar(state)",
+    ],
+    "columns": {
+      "customer": "unknown",
+      "state": "categorical",
+      "zip": "categorical",
+    },
+  },
+}
+`;
