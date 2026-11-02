@@ -28,9 +28,12 @@ export default function NumericRangeFilter({ schema }: { schema: ColumnSchema })
 
   const parse = (v: string): number | undefined => (v === '' ? undefined : Number(v));
 
+  const inputCls =
+    'w-24 rounded-md border border-zinc-200 bg-white px-2.5 py-1.5 text-xs text-zinc-700 transition-colors placeholder:text-zinc-400 hover:border-zinc-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500/40';
+
   return (
     <div>
-      <p className="mb-1.5 text-xs font-medium text-slate-500">{schema.name}</p>
+      <p className="mb-2 text-xs font-medium text-zinc-500">{schema.name}</p>
       <div className="flex items-center gap-2">
         <input
           type="number"
@@ -38,16 +41,16 @@ export default function NumericRangeFilter({ schema }: { schema: ColumnSchema })
           placeholder={schema.stats.min != null ? `min ${fmt(schema.stats.min)}` : 'min'}
           value={min ?? ''}
           onChange={(e) => update({ min: parse(e.target.value) })}
-          className="w-24 rounded-md border border-slate-300 px-2 py-1 text-xs text-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          className={inputCls}
         />
-        <span className="text-xs text-slate-400">–</span>
+        <span className="text-xs text-zinc-400">–</span>
         <input
           type="number"
           aria-label={`${schema.name} maximum`}
           placeholder={schema.stats.max != null ? `max ${fmt(schema.stats.max)}` : 'max'}
           value={max ?? ''}
           onChange={(e) => update({ max: parse(e.target.value) })}
-          className="w-24 rounded-md border border-slate-300 px-2 py-1 text-xs text-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          className={inputCls}
         />
       </div>
     </div>

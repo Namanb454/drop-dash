@@ -32,20 +32,29 @@ function headline(s: ColumnSchema): { label: string; value: string } {
   }
 }
 
+const TYPE_DOT: Record<string, string> = {
+  numeric: 'bg-accent-500',
+  categorical: 'bg-emerald-500',
+  date: 'bg-violet-500',
+  boolean: 'bg-amber-500',
+  identifier: 'bg-zinc-400',
+  unknown: 'bg-zinc-300',
+};
+
 export default function StatCard({ schema }: { schema: ColumnSchema }) {
   const { label, value } = headline(schema);
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4">
-      <div className="flex items-center justify-between">
-        <p className="truncate text-sm font-medium text-slate-800" title={schema.name}>
+    <div className="rounded-xl border border-zinc-200 bg-white p-4 shadow-soft transition-colors hover:border-zinc-300">
+      <div className="flex items-center gap-1.5">
+        <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${TYPE_DOT[schema.type] ?? 'bg-zinc-300'}`} aria-hidden="true" />
+        <p className="truncate text-sm font-medium text-zinc-700" title={schema.name}>
           {schema.name}
         </p>
-        <span className="text-[10px] uppercase tracking-wide text-slate-400">{schema.type}</span>
       </div>
-      <p className="mt-2 truncate text-lg font-semibold text-slate-900" title={value}>
+      <p className="mt-2.5 truncate text-lg font-semibold tracking-tight text-zinc-900" title={value}>
         {value}
       </p>
-      <p className="mt-0.5 text-xs text-slate-400">{label}</p>
+      <p className="mt-0.5 text-xs text-zinc-400">{label}</p>
     </div>
   );
 }

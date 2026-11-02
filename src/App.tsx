@@ -10,25 +10,35 @@ export default function App() {
   const reset = useDashboardStore((s) => s.reset);
 
   return (
-    <div className="min-h-full flex flex-col">
-      <header className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white/80 px-6 py-3 backdrop-blur">
-        <h1 className="text-lg font-semibold tracking-tight">
-          Drop<span className="text-indigo-600">Dash</span>
-        </h1>
-        {status === 'ready' && (
-          <div className="flex items-center gap-3">
-            <span className="hidden max-w-[40vw] truncate text-sm text-slate-500 sm:inline" title={fileName ?? ''}>
-              {fileName}
+    <div className="flex min-h-full flex-col">
+      <header className="sticky top-0 z-10 border-b border-zinc-200/70 bg-zinc-50/80 backdrop-blur-md">
+        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
+          <div className="flex items-center gap-2">
+            <span className="grid h-6 w-6 place-items-center rounded-md bg-zinc-900 text-[11px] font-bold text-white">
+              D
             </span>
-            <button
-              type="button"
-              onClick={reset}
-              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-indigo-400 hover:text-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            >
-              New file
-            </button>
+            <h1 className="text-[15px] font-semibold tracking-tight text-zinc-900">
+              Drop<span className="text-accent-600">Dash</span>
+            </h1>
           </div>
-        )}
+          {status === 'ready' && (
+            <div className="flex items-center gap-3">
+              <span
+                className="hidden max-w-[40vw] truncate text-sm text-zinc-500 sm:inline"
+                title={fileName ?? ''}
+              >
+                {fileName}
+              </span>
+              <button
+                type="button"
+                onClick={reset}
+                className="rounded-lg border border-zinc-200 bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-300 hover:bg-zinc-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900/15"
+              >
+                New file
+              </button>
+            </div>
+          )}
+        </div>
       </header>
 
       {status === 'ready' ? (
@@ -36,15 +46,15 @@ export default function App() {
           <Dashboard />
         </main>
       ) : (
-        <main className="flex-1 grid place-items-center p-6">
+        <main className="grid flex-1 place-items-center p-6">
           {status === 'parsing' && <LoadingState />}
           {status === 'error' && <ErrorState />}
           {status === 'idle' && <Dropzone />}
         </main>
       )}
 
-      <footer className="border-t border-slate-200 px-6 py-3 text-center text-xs text-slate-400">
-        DropDash · everything runs in your browser — no upload, no account.
+      <footer className="border-t border-zinc-200/70 px-6 py-4 text-center text-xs text-zinc-400">
+        Everything runs in your browser — no upload, no account.
       </footer>
     </div>
   );

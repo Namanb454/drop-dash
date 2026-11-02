@@ -24,9 +24,12 @@ export default function DateRangeFilter({ schema }: { schema: ColumnSchema }) {
     addFilter(filter);
   };
 
+  const inputCls =
+    'rounded-md border border-zinc-200 bg-white px-2.5 py-1.5 text-xs text-zinc-700 transition-colors hover:border-zinc-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500/40';
+
   return (
     <div>
-      <p className="mb-1.5 text-xs font-medium text-slate-500">{schema.name}</p>
+      <p className="mb-2 text-xs font-medium text-zinc-500">{schema.name}</p>
       <div className="flex items-center gap-2">
         <input
           type="date"
@@ -35,9 +38,9 @@ export default function DateRangeFilter({ schema }: { schema: ColumnSchema }) {
           min={schema.stats.minDate}
           max={schema.stats.maxDate}
           onChange={(e) => update({ from: e.target.value })}
-          className="rounded-md border border-slate-300 px-2 py-1 text-xs text-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          className={inputCls}
         />
-        <span className="text-xs text-slate-400">→</span>
+        <span className="text-xs text-zinc-400">→</span>
         <input
           type="date"
           aria-label={`${schema.name} to`}
@@ -45,7 +48,7 @@ export default function DateRangeFilter({ schema }: { schema: ColumnSchema }) {
           min={schema.stats.minDate}
           max={schema.stats.maxDate}
           onChange={(e) => update({ to: e.target.value })}
-          className="rounded-md border border-slate-300 px-2 py-1 text-xs text-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          className={inputCls}
         />
       </div>
     </div>

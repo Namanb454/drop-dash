@@ -16,12 +16,12 @@ export default function ChartCard({
   children: ReactNode;
 }) {
   return (
-    <figure className="flex flex-col rounded-xl border border-slate-200 bg-white p-4">
-      <figcaption className="mb-3">
-        <h3 className="text-sm font-semibold text-slate-900">{title}</h3>
-        {hint && <p className="text-xs text-slate-400">{hint}</p>}
+    <figure className="flex flex-col rounded-xl border border-zinc-200 bg-white p-5 shadow-soft transition-colors hover:border-zinc-300">
+      <figcaption className="mb-4 flex items-baseline justify-between gap-3">
+        <h3 className="text-sm font-medium text-zinc-900">{title}</h3>
+        {hint && <p className="shrink-0 text-xs text-zinc-400">{hint}</p>}
       </figcaption>
-      <div className="h-64 w-full" role="img" aria-label={ariaLabel}>
+      <div className="h-60 w-full" role="img" aria-label={ariaLabel}>
         {children}
       </div>
     </figure>

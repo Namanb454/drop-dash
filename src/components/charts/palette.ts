@@ -1,14 +1,32 @@
-/** Accessible, consistent categorical palette shared by all charts. */
-export const SERIES = '#6366f1'; // indigo
+/** Cohesive, restrained chart palette shared by all charts. */
+
+/** Single-series accent (histogram, line, scatter). */
+export const SERIES = '#4f46e5'; // accent-600
+
+/** Harmonized categorical hues — distinct but tonally even, for a calm grid. */
 export const CATEGORICAL = [
-  '#6366f1', // indigo
+  '#4f46e5', // indigo
+  '#0ea5e9', // sky
   '#14b8a6', // teal
   '#f59e0b', // amber
-  '#f43f5e', // rose
-  '#0ea5e9', // sky
+  '#ec4899', // pink
   '#8b5cf6', // violet
   '#10b981', // emerald
-  '#f97316', // orange
+  '#64748b', // slate
 ];
-export const GRID = '#e2e8f0';
-export const AXIS = '#64748b';
+
+/** Hairline gridlines and muted axis text keep charts quiet. */
+export const GRID = '#f4f4f5'; // zinc-100
+export const AXIS = '#a1a1aa'; // zinc-400
+
+/** Shared Recharts tooltip look — soft, rounded, lightly shadowed. */
+export const TOOLTIP_STYLE = {
+  fontSize: 12,
+  borderRadius: 10,
+  border: '1px solid #e4e4e7',
+  boxShadow: '0 4px 14px rgb(0 0 0 / 0.06)',
+  padding: '6px 10px',
+} as const;
+
+/** Faint accent wash behind the hovered bar. */
+export const CURSOR_FILL = 'rgba(79, 70, 229, 0.05)';

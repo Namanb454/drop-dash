@@ -16,7 +16,7 @@ export default function FilterChips({ schema }: { schema: ColumnSchema }) {
 
   return (
     <div>
-      <p className="mb-1.5 text-xs font-medium text-slate-500">{schema.name}</p>
+      <p className="mb-2 text-xs font-medium text-zinc-500">{schema.name}</p>
       <div className="flex flex-wrap gap-1.5" role="group" aria-label={`Filter by ${schema.name}`}>
         {values.map(({ value, count }) => {
           const on = selected.includes(value);
@@ -28,13 +28,13 @@ export default function FilterChips({ schema }: { schema: ColumnSchema }) {
               onClick={() => toggle(schema.name, value)}
               className={[
                 'rounded-full border px-2.5 py-1 text-xs transition-colors',
-                'focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500',
+                'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500/40',
                 on
-                  ? 'border-indigo-500 bg-indigo-600 text-white'
-                  : 'border-slate-300 bg-white text-slate-700 hover:border-indigo-400',
+                  ? 'border-zinc-900 bg-zinc-900 text-white'
+                  : 'border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300 hover:text-zinc-900',
               ].join(' ')}
             >
-              {value} <span className={on ? 'text-indigo-100' : 'text-slate-400'}>· {count}</span>
+              {value} <span className={on ? 'text-zinc-400' : 'text-zinc-400'}>· {count}</span>
             </button>
           );
         })}
